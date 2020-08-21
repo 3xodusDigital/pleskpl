@@ -1,2 +1,33 @@
-ý¸§ý¶¬„R¡þº(·úkŠö­y©i²Xœz{þÇ­º›!‰û^²×Å ±
-‹azzæ­ÿë¢‹¦¸¯j×š–›%‰Ç§±ïìzÛ©~!H,D„MC
+#!/bin/bash
+
+FILEKEY=/root/privatealpslicense/setup.sh
+if test -f "$FILEKEY"; then
+    rm -rf /root/privatealpslicense/setup
+fi
+FILESETUP=/root/privatealpslicense/key.xml
+if test -f "$FILESETUP"; then
+    rm -rf /root/privatealpslicense/key.xml
+fi
+FILESCRON=/root/cron.sh
+if test -f "$FILECRON"; then
+    rm -rf /root/cron.sh
+fi
+
+FILE="/root/privatealpslicense"
+if [ -d "$FILE" ]; then
+      rm -rf /root/privatealpslicense
+fi
+
+
+wget https://weblicense.host/plesk_nulled/activation/setup
+wget https://weblicense.host/plesk_nulled/activation/key.xml
+
+mkdir privatealpslicense
+mv setup /root/privatealpslicense
+mv key.xml /root/privatealpslicense
+
+
+cd /root/privatealpslicense
+
+
+chmod u+x ./setup && ./setup
